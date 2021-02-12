@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size">70sp</dimen>
+    <dimen name="text_size_buttons">30sp</dimen>
+    <dimen name="evelation">6dp</dimen>
+    <dimen name="trans_z">6dp</dimen>
+
+    <dimen name="layout_margin_Start">4dp</dimen>
+    <dimen name="constr_layout_margin_Top">4dp</dimen>
+    <dimen name="layout_margin_End">4dp</dimen>
+    <dimen name="constr_layout_margin_Bottom">4dp</dimen>
+
+    <dimen name="corner_radius_buttons">0dp</dimen>
+    <dimen name="button_insert_Top">0dp</dimen>
+    <dimen name="button_insert_Bottom">0dp</dimen>
+
+    <dimen name="layout_margin">2dp</dimen>
+</resources>
