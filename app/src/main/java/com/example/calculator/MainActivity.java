@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         buttonBackspace = findViewById(R.id.buttonBackspace);
         buttonPersent = findViewById(R.id.buttonPersent);
         buttonClear = findViewById(R.id.buttonClear);
-        textViewShowResult = findViewById(R.id.textViewResult);
+        textViewShowResult = findViewById(R.id.textViewHistory);
 
     }
 

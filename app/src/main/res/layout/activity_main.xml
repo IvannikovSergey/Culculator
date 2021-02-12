@@ -1,200 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_primary_light"
-    android:backgroundTint="@color/color_primary_light"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <TextView
+        android:id="@+id/textViewHistory"
+        style="@style/MyTextViewStyle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="@dimen/layout_height"
+        android:layout_marginTop="@dimen/layout_margin_top"
+        android:background="@color/color_primary_light"
+        android:textSize="@dimen/text_size_portret" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/layout_margin_Start"
-            android:layout_marginTop="@dimen/constr_layout_margin_Top"
-            android:layout_marginEnd="@dimen/layout_margin_End"
-            android:layout_marginBottom="@dimen/constr_layout_margin_Bottom"
-            android:layout_weight="0.6"
-            android:background="@color/white"
-            android:backgroundTint="@color/color_primary_light">
+    <TextView
+        android:id="@+id/textViewResult"
+        style="@style/MyTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_height"
+        android:background="@color/color_primary_light"
+        android:text="@string/begin_result"
+        android:textSize="@dimen/text_size_portret" />
 
-            <TextView
-                android:id="@+id/textViewResult"
-                style="@style/MyTextViewStyle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/color_primary"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        style="@style/MyLinearLayoutStyle"
+        android:layout_weight="1">
 
-        <LinearLayout
-            style="@style/MyLinearLayoutStyle"
-            android:layout_weight="1">
+        <Button
+            android:id="@+id/buttonClear"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_accent"
+            android:text="@string/ac"
+            tools:ignore="NestedWeights" />
 
-            <Button
-                android:id="@+id/buttonClear"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:backgroundTint="@color/color_accent"
-                android:text="@string/ac"
-                tools:ignore="NestedWeights" />
+        <Button
+            android:id="@+id/buttonBackspace"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_accent"
+            android:text="@string/delete"
+            app:iconTint="@color/white" />
 
-            <Button
-                android:id="@+id/buttonBackspace"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:backgroundTint="@color/color_accent"
-                app:icon="@drawable/ic_baseline_backspace_24"
-                app:iconTint="@color/white" />
+        <Button
+            android:id="@+id/buttonPersent"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_accent"
+            android:text="@string/buttonPersent" />
 
-            <Button
-                android:id="@+id/buttonPersent"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:backgroundTint="@color/color_accent"
-                android:text="@string/buttonPersent" />
-
-            <Button
-                android:id="@+id/buttonDivide"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:backgroundTint="@color/color_accent"
-                android:text="@string/buttonDivide" />
-        </LinearLayout>
-
-        <LinearLayout
-            style="@style/MyLinearLayoutStyle"
-            android:layout_weight="1">
-
-            <Button
-                android:id="@+id/buttonSeven"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:text="@string/button_7"
-                tools:ignore="NestedWeights" />
-
-            <Button
-                android:id="@+id/buttonEight"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:text="@string/button_8" />
-
-            <Button
-                android:id="@+id/buttonNine"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:text="@string/button_9" />
-
-            <Button
-                android:id="@+id/buttonMultp"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:backgroundTint="@color/color_accent"
-                android:text="@string/buttonMulti" />
-        </LinearLayout>
-
-        <LinearLayout
-            style="@style/MyLinearLayoutStyle"
-            android:layout_weight="1">
-
-            <Button
-                android:id="@+id/buttonFour"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:text="@string/button_4"
-                tools:ignore="NestedWeights" />
-
-            <Button
-                android:id="@+id/buttonFive"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:text="@string/button_5" />
-
-            <Button
-                android:id="@+id/buttonSix"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:text="@string/button_6" />
-
-            <Button
-                android:id="@+id/buttonMinus"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:backgroundTint="@color/color_accent"
-                android:text="@string/buttonMinus" />
-        </LinearLayout>
-
-        <LinearLayout
-            style="@style/MyLinearLayoutStyle"
-            android:layout_weight="1">
-
-            <Button
-                android:id="@+id/buttonOne"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:text="@string/button_1"
-                tools:ignore="NestedWeights" />
-
-            <Button
-                android:id="@+id/buttonTwo"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:text="@string/button_2" />
-
-            <Button
-                android:id="@+id/buttonThree"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:text="@string/button_3" />
-
-            <Button
-                android:id="@+id/buttonPlus"
-                style="@style/MyButtons"
-                android:layout_weight="1"
-                android:backgroundTint="@color/color_accent"
-                android:text="@string/buttonPlus" />
-        </LinearLayout>
-
-        <LinearLayout
-            style="@style/MyLinearLayoutStyle"
-            android:layout_marginBottom="@dimen/layout_margin_bottom"
-            android:layout_weight="1">
-
-            <Button
-                android:id="@+id/buttonZero"
-                style="@style/MyButtons"
-                android:layout_weight="1.34"
-                android:text="@string/button_0"
-                tools:ignore="NestedWeights" />
-
-            <Button
-                android:id="@+id/buttonDecimal"
-                style="@style/MyButtons"
-                android:layout_weight="2"
-                android:text="@string/buttonDecimal" />
-
-            <Button
-                android:id="@+id/buttonEqual"
-                style="@style/MyButtons"
-                android:layout_weight="2"
-                android:backgroundTint="@color/color_accent"
-                android:text="@string/buttonEqual" />
-        </LinearLayout>
-
+        <Button
+            android:id="@+id/buttonDivide"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_accent"
+            android:text="@string/buttonDivide" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        style="@style/MyLinearLayoutStyle"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/buttonSeven"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:text="@string/button_7"
+            tools:ignore="NestedWeights" />
+
+        <Button
+            android:id="@+id/buttonEight"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:text="@string/button_8" />
+
+        <Button
+            android:id="@+id/buttonNine"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:text="@string/button_9" />
+
+        <Button
+            android:id="@+id/buttonMultp"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_accent"
+            android:text="@string/buttonMulti" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/MyLinearLayoutStyle"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/buttonFour"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:text="@string/button_4"
+            tools:ignore="NestedWeights" />
+
+        <Button
+            android:id="@+id/buttonFive"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:text="@string/button_5" />
+
+        <Button
+            android:id="@+id/buttonSix"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:text="@string/button_6" />
+
+        <Button
+            android:id="@+id/buttonMinus"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_accent"
+            android:text="@string/buttonMinus" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/MyLinearLayoutStyle"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/buttonOne"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:text="@string/button_1"
+            tools:ignore="NestedWeights" />
+
+        <Button
+            android:id="@+id/buttonTwo"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:text="@string/button_2" />
+
+        <Button
+            android:id="@+id/buttonThree"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:text="@string/button_3" />
+
+        <Button
+            android:id="@+id/buttonPlus"
+            style="@style/MyButtons"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_accent"
+            android:text="@string/buttonPlus" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/MyLinearLayoutStyle"
+        android:layout_marginBottom="@dimen/layout_margin_bottom"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/buttonZero"
+            style="@style/MyButtons"
+            android:layout_weight="1.335"
+            android:text="@string/button_0"
+            tools:ignore="NestedWeights" />
+
+        <Button
+            android:id="@+id/buttonDecimal"
+            style="@style/MyButtons"
+            android:layout_weight="2"
+            android:text="@string/buttonDecimal" />
+
+        <Button
+            android:id="@+id/buttonEqual"
+            style="@style/MyButtons"
+            android:layout_weight="2"
+            android:backgroundTint="@color/color_accent"
+            android:text="@string/buttonEqual" />
+    </LinearLayout>
+
+</LinearLayout>
+
+
