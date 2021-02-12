@@ -10,6 +10,9 @@
     <dimen name="layout_margin_End">4dp</dimen>
     <dimen name="constr_layout_margin_Bottom">4dp</dimen>
 
+    <dimen name="layout_margin_bottom">4dp</dimen>
+    <dimen name="layout_margin_top">4dp</dimen>
+
     <dimen name="corner_radius_buttons">0dp</dimen>
     <dimen name="button_insert_Top">0dp</dimen>
     <dimen name="button_insert_Bottom">0dp</dimen>
