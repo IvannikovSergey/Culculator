@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/textViewHistory"
-        style="@style/MyTextViewStyle_night"
+        style="@style/MyTextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="@dimen/layout_height"
         android:layout_marginTop="@dimen/layout_margin_top"
@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/textViewResult"
-        style="@style/MyTextViewStyle_night"
+        style="@style/MyTextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="@dimen/layout_height"
         android:background="@color/white"
@@ -31,7 +31,7 @@
 
         <Button
             android:id="@+id/buttonClear"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:backgroundTint="@color/color_accent"
             android:text="@string/ac"
@@ -39,7 +39,7 @@
 
         <Button
             android:id="@+id/buttonBackspace"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:backgroundTint="@color/color_accent"
             android:text="@string/delete"
@@ -47,14 +47,14 @@
 
         <Button
             android:id="@+id/buttonPersent"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:backgroundTint="@color/color_accent"
             android:text="@string/buttonPersent" />
 
         <Button
             android:id="@+id/buttonDivide"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:backgroundTint="@color/color_accent"
             android:text="@string/buttonDivide" />
@@ -66,26 +66,26 @@
 
         <Button
             android:id="@+id/buttonSeven"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:text="@string/button_7"
             tools:ignore="NestedWeights" />
 
         <Button
             android:id="@+id/buttonEight"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:text="@string/button_8" />
 
         <Button
             android:id="@+id/buttonNine"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:text="@string/button_9" />
 
         <Button
             android:id="@+id/buttonMultp"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:backgroundTint="@color/color_accent"
             android:text="@string/buttonMulti" />
@@ -97,26 +97,26 @@
 
         <Button
             android:id="@+id/buttonFour"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:text="@string/button_4"
             tools:ignore="NestedWeights" />
 
         <Button
             android:id="@+id/buttonFive"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:text="@string/button_5" />
 
         <Button
             android:id="@+id/buttonSix"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:text="@string/button_6" />
 
         <Button
             android:id="@+id/buttonMinus"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:backgroundTint="@color/color_accent"
             android:text="@string/buttonMinus" />
@@ -128,26 +128,26 @@
 
         <Button
             android:id="@+id/buttonOne"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:text="@string/button_1"
             tools:ignore="NestedWeights" />
 
         <Button
             android:id="@+id/buttonTwo"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:text="@string/button_2" />
 
         <Button
             android:id="@+id/buttonThree"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:text="@string/button_3" />
 
         <Button
             android:id="@+id/buttonPlus"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1"
             android:backgroundTint="@color/color_accent"
             android:text="@string/buttonPlus" />
@@ -160,20 +160,20 @@
 
         <Button
             android:id="@+id/buttonZero"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="1.335"
             android:text="@string/button_0"
             tools:ignore="NestedWeights" />
 
         <Button
             android:id="@+id/buttonDecimal"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="2"
             android:text="@string/buttonDecimal" />
 
         <Button
             android:id="@+id/buttonEqual"
-            style="@style/MyButtons_night"
+            style="@style/MyButtons"
             android:layout_weight="2"
             android:backgroundTint="@color/color_accent"
             android:text="@string/buttonEqual" />
