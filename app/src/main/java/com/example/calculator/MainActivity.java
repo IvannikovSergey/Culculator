@@ -1,27 +1,47 @@
 package com.example.calculator;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textViewShowResult;
+    private TextView textViewResult;
+    private TextView textViewHistory;
 
-    Button buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive, buttonSix, buttonSeven, buttonEight, buttonNine, buttonZero, buttonEqual, buttonClear, buttonBackspace, buttonMultp, buttonPlus, buttonMinus, buttonPersent, buttonDivide, buttonDesimal;
-    double valueOne, valueTwo;
-    boolean isAddition, isDivision, isMulty, isSubstract;
-    String result;
+    private String number = null;
+
+    private Button buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive, buttonSix, buttonSeven, buttonEight, buttonNine, buttonZero, buttonEqual, buttonClear, buttonBackspace, buttonMultp, buttonPlus, buttonMinus, buttonPersent, buttonDivide, buttonDesimal;
+
+    double firstValue = 0;
+    double lastVavue = 0;
+
+    String status = null;
+    boolean operator = false;
+    boolean dot = true;
+    boolean buttonClearControl = true;
+    boolean buttonEqualsControl = false;
+
+    DecimalFormat formatter;
+
+    String history, currentResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        formatter = new DecimalFormat("######.###");
 
         initUI();
         setOnButtonsListener();
@@ -38,16 +58,21 @@ public class MainActivity extends AppCompatActivity {
         buttonEight = findViewById(R.id.buttonEight);
         buttonNine = findViewById(R.id.buttonNine);
         buttonZero = findViewById(R.id.buttonZero);
+
         buttonMinus = findViewById(R.id.buttonMinus);
         buttonPlus = findViewById(R.id.buttonPlus);
         buttonMultp = findViewById(R.id.buttonMultp);
         buttonDivide = findViewById(R.id.buttonDivide);
+
         buttonEqual = findViewById(R.id.buttonEqual);
+
         buttonDesimal = findViewById(R.id.buttonDecimal);
         buttonBackspace = findViewById(R.id.buttonBackspace);
         buttonPersent = findViewById(R.id.buttonPersent);
         buttonClear = findViewById(R.id.buttonClear);
-        textViewShowResult = findViewById(R.id.textViewHistory);
+
+        textViewResult = findViewById(R.id.textViewResult);
+        textViewHistory = findViewById(R.id.textViewHistory);
 
     }
 
@@ -55,157 +80,350 @@ public class MainActivity extends AppCompatActivity {
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResultText("1");
+                clickedNumber("1");
             }
         });
 
         buttonTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResultText("2");
+                clickedNumber("2");
             }
         });
 
         buttonThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResultText("3");
+                clickedNumber("3");
             }
         });
 
         buttonFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResultText("4");
+                clickedNumber("4");
             }
         });
 
         buttonFive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResultText("5");
+                clickedNumber("5");
             }
         });
 
         buttonSix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResultText("6");
+                clickedNumber("6");
             }
         });
 
         buttonSeven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResultText("7");
+                clickedNumber("7");
             }
         });
 
         buttonEight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResultText("8");
+                clickedNumber("8");
             }
         });
 
         buttonNine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResultText("9");
+                clickedNumber("9");
             }
         });
 
         buttonZero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResultText("0");
+                clickedNumber("0");
             }
         });
 
-        buttonClear.setOnClickListener(v -> textViewShowResult.setText(""));
-
-        buttonDesimal.setOnClickListener(new View.OnClickListener() {
+        buttonClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResultText(".");
+                operator = false;
+                status = null;
+                number = null;
+                firstValue = 0;
+                lastVavue = 0;
+                textViewResult.setText("0");
+                textViewHistory.setText("");
+                dot = true;
+                buttonClearControl = true;
+            }
+        });
+
+        buttonPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                history = textViewHistory.getText().toString();
+                currentResult = textViewResult.getText().toString();
+                textViewHistory.setText(history + currentResult + "+");
+
+                if (operator) {
+                    if (status == "multiplication") {
+                        multiply();
+                    } else if (status == "division") {
+                        divide();
+                    } else if (status == "substraction") {
+                        minus();
+                    } else {
+                        plus();
+                    }
+                }
+                status = "sum";
+                operator = false;
+                number = null;
+            }
+        });
+
+        buttonMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                history = textViewHistory.getText().toString();
+                currentResult = textViewResult.getText().toString();
+                textViewHistory.setText(history + currentResult + "-");
+
+                if (operator) {
+                    if (status == "multiplication") {
+                        multiply();
+                    } else if (status == "division") {
+                        divide();
+                    } else if (status == "sum") {
+                        plus();
+                    } else {
+                        minus();
+                    }
+                }
+                status = "substraction";
+                operator = false;
+                number = null;
+            }
+        });
+
+        buttonDivide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                history = textViewHistory.getText().toString();
+                currentResult = textViewResult.getText().toString();
+                textViewHistory.setText(history + currentResult + "/");
+
+                if (operator) {
+                    if (status == "multiplication") {
+                        multiply();
+                    } else if (status == "substraction") {
+                        minus();
+                    } else if (status == "sum") {
+                        plus();
+                    } else {
+                        divide();
+                    }
+                }
+                status = "division";
+                operator = false;
+                number = null;
+            }
+        });
+
+        buttonMultp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                history = textViewHistory.getText().toString();
+                currentResult = textViewResult.getText().toString();
+                textViewHistory.setText(history + currentResult + "*");
+
+                if (operator) {
+                    if (status == "sum") {
+                        plus();
+                    } else if (status == "division") {
+                        divide();
+                    } else if (status == "substraction") {
+                        minus();
+                    } else {
+                        multiply();
+                    }
+                }
+                status = "multiplication";
+                operator = false;
+                number = null;
             }
         });
 
         buttonBackspace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                result = textViewShowResult.getText().toString();
-                if (result.length() != 0) {
-                    result = result.substring(0, result.length() - 1);
-                }
-                textViewShowResult.setText(result);
-            }
-        });
 
-        buttonPlus.setOnClickListener(v -> {
-            try {
-                valueOne = Double.parseDouble(textViewShowResult.getText() + "");
-            } catch (NumberFormatException ex) {
-            }
-            isAddition = true;
-            textViewShowResult.setText(null);
-        });
-
-        buttonMinus.setOnClickListener(v -> {
-            try {
-                valueOne = Double.parseDouble(textViewShowResult.getText() + "");
-            } catch (NumberFormatException ex) {
-            }
-            isSubstract = true;
-            textViewShowResult.setText(null);
-        });
-
-        buttonMultp.setOnClickListener(v -> {
-            try {
-                valueOne = Double.parseDouble(textViewShowResult.getText() + "");
-            } catch (NumberFormatException ex) {
-            }
-            isMulty = true;
-            textViewShowResult.setText(null);
-        });
-
-        buttonDivide.setOnClickListener(v -> {
-            try {
-                valueOne = Double.parseDouble(textViewShowResult.getText() + "");
-            } catch (NumberFormatException ex) {
-            }
-            isDivision = true;
-            textViewShowResult.setText(null);
-        });
-
-        buttonEqual.setOnClickListener(v -> {
-            try {
-                valueTwo = Double.parseDouble(textViewShowResult.getText() + "");
-            } catch (NumberFormatException ex) {
-                textViewShowResult.setText("");
-            }
-            if (isAddition) {
-                textViewShowResult.setText(valueOne + valueTwo + "");
-                isAddition = false;
-            } else if (isSubstract) {
-                textViewShowResult.setText(valueOne - valueTwo + "");
-                isSubstract = false;
-            } else if (isMulty) {
-                textViewShowResult.setText(valueOne * valueTwo + "");
-                isMulty = false;
-            } else if (isDivision) {
-                if (valueTwo != 0) {
-                    textViewShowResult.setText(valueOne / valueTwo + "");
-                    isDivision = false;
+                if (buttonClearControl) {
+                    textViewResult.setText("0");
                 } else {
-                    Toast.makeText(this, "На ноль делить нельзя", Toast.LENGTH_SHORT).show();
-                    textViewShowResult.setText("");
+                    number = number.substring(0, number.length() - 1);
+                    if (number.length() == 0) {
+                        buttonBackspace.setClickable(false);
+                    } else if (number.contains(".")) {
+                        dot = false;
+                    } else {
+                        dot = true;
+                    }
+                    textViewResult.setText(number);
                 }
+            }
+        });
+
+        buttonPersent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        buttonDesimal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (dot) {
+                    if (number == null) {
+                        number = "0.";
+                    } else {
+                        number = number + ".";
+                    }
+                }
+                textViewResult.setText(number);
+                dot = false;
+            }
+        });
+
+        buttonEqual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (operator) {
+                    if (status == "sum") {
+                        plus();
+                    } else if (status == "substraction") {
+                        minus();
+                    } else if (status == "multiplication") {
+                        multiply();
+                    } else if (status == "division") {
+                        divide();
+                    } else {
+                        firstValue = Double.parseDouble(textViewResult.getText().toString());
+                    }
+                }
+                operator = false;
+                buttonEqualsControl = true;
             }
         });
     }
 
-    public void setResultText(String s) {
-        textViewShowResult.setText(textViewShowResult.getText().toString() + s);
+    public void clickedNumber(String view) {
+        if (number == null) {
+            number = view;
+        } else if (buttonEqualsControl) {
+            firstValue = 0;
+            lastVavue = 0;
+            number = view;
+        } else {
+            number = number + view;
+        }
+        textViewResult.setText(number);
+        operator = true;
+        buttonClearControl = false;
+        buttonBackspace.setClickable(true);
+        buttonEqualsControl = false;
+    }
+
+    public void plus() {
+        lastVavue = Double.parseDouble(textViewResult.getText().toString());
+        firstValue = firstValue + lastVavue;
+        myFormatView(firstValue);
+        dot = true;
+
+    }
+
+    public void minus() {
+        if (firstValue == 0) {
+            firstValue = Double.parseDouble(textViewResult.getText().toString());
+        } else {
+            lastVavue = Double.parseDouble(textViewResult.getText().toString());
+            firstValue = firstValue - lastVavue;
+        }
+
+        myFormatView(firstValue);
+        dot = true;
+    }
+
+    public void multiply() {
+        if (firstValue == 0) {
+            firstValue = 1;
+            lastVavue = Double.parseDouble(textViewResult.getText().toString());
+            firstValue = firstValue * lastVavue;
+        } else {
+            lastVavue = Double.parseDouble(textViewResult.getText().toString());
+            firstValue = firstValue * lastVavue;
+        }
+
+        myFormatView(firstValue);
+        dot = true;
+    }
+
+    public void divide() {
+        if (firstValue == 0) {
+            lastVavue = Double.parseDouble(textViewResult.getText().toString());
+            firstValue = lastVavue / 1;
+        } else {
+            lastVavue = Double.parseDouble(textViewResult.getText().toString());
+            firstValue = firstValue / lastVavue;
+        }
+
+        myFormatView(firstValue);
+        dot = true;
+    }
+
+    public void myFormatView(double value) {
+        textViewResult.setText(formatter.format(value));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+
+        int nightMode = AppCompatDelegate.getDefaultNightMode();
+        if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+            menu.findItem(R.id.night_mode).setTitle(R.string.day_mode);
+        } else {
+            menu.findItem(R.id.night_mode).setTitle(R.string.night_mode);
+        }
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        // Check if the correct item was clicked.
+        if (item.getItemId() == R.id.night_mode) {
+            int nightMode = AppCompatDelegate.getDefaultNightMode();
+            if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+                AppCompatDelegate.setDefaultNightMode
+                        (AppCompatDelegate.MODE_NIGHT_NO);
+            } else {
+                AppCompatDelegate.setDefaultNightMode
+                        (AppCompatDelegate.MODE_NIGHT_YES);
+            }
+            recreate();
+        }
+        return true;
     }
 }
+
