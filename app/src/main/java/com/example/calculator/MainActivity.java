@@ -1,5 +1,6 @@
 package com.example.calculator;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -24,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         initUI();
         setOnButtonsListener();
-
     }
 
     public void initUI() {
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         buttonBackspace = findViewById(R.id.buttonBackspace);
         buttonPersent = findViewById(R.id.buttonPersent);
         buttonClear = findViewById(R.id.buttonClear);
-        textViewShowResult = findViewById(R.id.textViewResult);
+        textViewShowResult = findViewById(R.id.textViewHistory);
 
     }
 
@@ -55,70 +55,70 @@ public class MainActivity extends AppCompatActivity {
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setText("1");
+                setResultText("1");
             }
         });
 
         buttonTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setText("2");
+                setResultText("2");
             }
         });
 
         buttonThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setText("3");
+                setResultText("3");
             }
         });
 
         buttonFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setText("4");
+                setResultText("4");
             }
         });
 
         buttonFive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setText("5");
+                setResultText("5");
             }
         });
 
         buttonSix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setText("6");
+                setResultText("6");
             }
         });
 
         buttonSeven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setText("7");
+                setResultText("7");
             }
         });
 
         buttonEight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setText("8");
+                setResultText("8");
             }
         });
 
         buttonNine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setText("9");
+                setResultText("9");
             }
         });
 
         buttonZero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setText("0");
+                setResultText("0");
             }
         });
 
@@ -127,10 +127,9 @@ public class MainActivity extends AppCompatActivity {
         buttonDesimal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setText(".");
+                setResultText(".");
             }
         });
-
 
         buttonBackspace.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -206,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void setText(String s) {
+    public void setResultText(String s) {
         textViewShowResult.setText(textViewShowResult.getText().toString() + s);
     }
 }

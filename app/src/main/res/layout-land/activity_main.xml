@@ -16,377 +16,182 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewHistory"
+            style="@style/MyTextViewStyle"
             android:layout_width="match_parent"
-            android:layout_height="309dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_weight="0.6"
-            android:background="@color/white"
-            android:backgroundTint="@color/color_primary_light">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin_top"
+            android:background="@color/color_primary_light"
+            android:textSize="@dimen/text_size_land" />
 
-            <TextView
-                android:id="@+id/textViewResult"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="2dp"
-                android:layout_marginEnd="2dp"
-                android:background="@color/color_primary"
-                android:elevation="@dimen/evelation"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size"
-                android:translationZ="@dimen/trans_z"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textViewResult"
+            style="@style/MyTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_primary_light"
+            android:text="@string/begin_result"
+            android:textSize="@dimen/text_size_land" />
 
         <LinearLayout
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            style="@style/MyLinearLayoutStyle"
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/buttonClear"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
                 android:backgroundTint="@color/color_accent"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
                 android:text="@string/ac"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons"
                 tools:ignore="NestedWeights" />
 
             <Button
                 android:id="@+id/buttonBackspace"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
                 android:backgroundTint="@color/color_accent"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
-                android:text="@string/buttonBackspace"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons" />
+                android:text="@string/delete"
+                app:iconTint="@color/white" />
 
             <Button
                 android:id="@+id/buttonPersent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
                 android:backgroundTint="@color/color_accent"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
-                android:text="@string/buttonPersent"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons" />
+                android:text="@string/buttonPersent" />
 
             <Button
                 android:id="@+id/buttonDivide"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
                 android:backgroundTint="@color/color_accent"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
-                android:text="@string/buttonDivide"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons" />
+                android:text="@string/buttonDivide" />
         </LinearLayout>
 
         <LinearLayout
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            style="@style/MyLinearLayoutStyle"
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/buttonSeven"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
                 android:text="@string/button_7"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons"
                 tools:ignore="NestedWeights" />
 
             <Button
                 android:id="@+id/buttonEight"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
-                android:text="@string/button_8"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons" />
+                android:text="@string/button_8" />
 
             <Button
                 android:id="@+id/buttonNine"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
-                android:text="@string/button_9"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons" />
+                android:text="@string/button_9" />
 
             <Button
                 android:id="@+id/buttonMultp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
                 android:backgroundTint="@color/color_accent"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
-                android:text="@string/buttonMulti"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons" />
+                android:text="@string/buttonMulti" />
         </LinearLayout>
 
         <LinearLayout
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            style="@style/MyLinearLayoutStyle"
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/buttonFour"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
                 android:text="@string/button_4"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons"
                 tools:ignore="NestedWeights" />
 
             <Button
                 android:id="@+id/buttonFive"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
-                android:text="@string/button_5"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons" />
+                android:text="@string/button_5" />
 
             <Button
                 android:id="@+id/buttonSix"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
-                android:text="@string/button_6"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons" />
+                android:text="@string/button_6" />
 
             <Button
                 android:id="@+id/buttonMinus"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
                 android:backgroundTint="@color/color_accent"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
-                android:text="@string/buttonMinus"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons" />
+                android:text="@string/buttonMinus" />
         </LinearLayout>
 
         <LinearLayout
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            style="@style/MyLinearLayoutStyle"
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/buttonOne"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
-                android:backgroundTintMode="screen"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
                 android:text="@string/button_1"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons"
                 tools:ignore="NestedWeights" />
 
             <Button
                 android:id="@+id/buttonTwo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
-                android:text="@string/button_2"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons" />
+                android:text="@string/button_2" />
 
             <Button
                 android:id="@+id/buttonThree"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
-                android:text="@string/button_3"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons" />
+                android:text="@string/button_3" />
 
             <Button
                 android:id="@+id/buttonPlus"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="1"
                 android:backgroundTint="@color/color_accent"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
-                android:text="@string/buttonPlus"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons" />
+                android:text="@string/buttonPlus" />
         </LinearLayout>
 
         <LinearLayout
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            style="@style/MyLinearLayoutStyle"
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/buttonZero"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
-                android:layout_weight="1.34"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
+                style="@style/MyButtons"
+                android:layout_weight="1.335"
                 android:text="@string/button_0"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons"
                 tools:ignore="NestedWeights" />
 
             <Button
                 android:id="@+id/buttonDecimal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="2"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
-                android:text="@string/buttonDecimal"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons" />
+                android:text="@string/buttonDecimal" />
 
             <Button
                 android:id="@+id/buttonEqual"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/layout_margin"
+                style="@style/MyButtons"
                 android:layout_weight="2"
                 android:backgroundTint="@color/color_accent"
-                android:elevation="@dimen/evelation"
-                android:insetTop="@dimen/button_insert_Top"
-                android:insetBottom="@dimen/button_insert_Bottom"
-                android:text="@string/buttonEqual"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_buttons"
-                android:translationZ="@dimen/trans_z"
-                app:cornerRadius="@dimen/corner_radius_buttons" />
+                android:text="@string/buttonEqual" />
         </LinearLayout>
 
     </LinearLayout>

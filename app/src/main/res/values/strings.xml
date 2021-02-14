@@ -17,6 +17,8 @@
     <string name="button_3">3</string>
     <string name="buttonPlus">+</string>
     <string name="button_0">0</string>
-    <string name="buttonDecimal">,</string>
+    <string name="buttonDecimal">.</string>
     <string name="buttonEqual">=</string>
+    <string name="delete">DEL</string>
+    <string name="begin_result">0</string>
 </resources>
