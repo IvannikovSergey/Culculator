@@ -11,7 +11,6 @@
 
     <dimen name="layout_height">180dp</dimen>
 
-    <dimen name="corner_radius_buttons">0dp</dimen>
     <dimen name="button_insert_Top">0dp</dimen>
     <dimen name="button_insert_Bottom">0dp</dimen>
 

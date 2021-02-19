@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">Calculator</string>
+
     <string name="ac">AC</string>
     <string name="buttonBackspace">+/-</string>
     <string name="buttonPersent">%</string>
     <string name="buttonDivide">/</string>
+
     <string name="button_7">7</string>
     <string name="button_8">8</string>
     <string name="button_9">9</string>
@@ -17,8 +19,12 @@
     <string name="button_3">3</string>
     <string name="buttonPlus">+</string>
     <string name="button_0">0</string>
+
     <string name="buttonDecimal">.</string>
     <string name="buttonEqual">=</string>
     <string name="delete">DEL</string>
-    <string name="begin_result">0</string>
+
+    <string name="night_mode">Night Mode</string>
+    <string name="day_mode">Day Mode</string>
+    <string name="_0">0</string>
 </resources>

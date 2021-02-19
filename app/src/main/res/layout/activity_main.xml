@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_primary_light"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -14,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/layout_height"
         android:layout_marginTop="@dimen/layout_margin_top"
-        android:background="@color/color_primary_light"
+        android:background="@color/white"
         android:textSize="@dimen/text_size_portret" />
 
     <TextView
@@ -22,8 +21,8 @@
         style="@style/MyTextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="@dimen/layout_height"
-        android:background="@color/color_primary_light"
-        android:text="@string/begin_result"
+        android:background="@color/white"
+        android:text="@string/_0"
         android:textSize="@dimen/text_size_portret" />
 
     <LinearLayout
